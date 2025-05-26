@@ -1,0 +1,15 @@
+    {
+        "nama":"Siti Aisyah Denia Putri",
+        "umur": 21,
+        "nim" :"2217020045",
+        "jurusan" :"Sistem Informasi",
+        "lulus" : true,
+        "hobby" : [
+            "Memasak","Badminton"
+        ],
+        "pembimbing" : {
+            "pembimbing1" : "Haditya",
+            "pembimbing2" : "Ozzy Secio Roza"
+        }
+    }
+       
