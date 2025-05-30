@@ -42,23 +42,7 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#home">Sandhika Galih</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
-            </li>
-          </ul>
-        </div>
+        <a class="navbar-brand" href="#home">Siti Aisyah Denia Putri</a>
       </div>
     </nav>
 
@@ -66,36 +50,16 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
     <div class="jumbotron" id="home">
       <div class="container">
         <div class="text-center">
-          <img src="img/profile1.png" class="rounded-circle img-thumbnail">
-          <h1 class="display-4">Sandhika Galih</h1>
-          <h3 class="lead">Lecturer | Programmer | Youtuber</h3>
+          <img src="img/WhatsApp.jpg" class="rounded-circle img-thumbnail">
+          <h1 class="display-4">SITI AISYAH DENIA PUTRI</h1>
+          <h3 class="lead">Nim : 2217020045 | Sitem Informasi</h3>
         </div>
       </div>
     </div>
 
 
-    <!-- About -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="row mb-4">
-          <div class="col text-center">
-            <h2>About</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, molestiae sunt doloribus error ullam expedita cumque blanditiis quas vero, qui, consectetur modi possimus. Consequuntur optio ad quae possimus, debitis earum.</p>
-          </div>
-          <div class="col-md-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, molestiae sunt doloribus error ullam expedita cumque blanditiis quas vero, qui, consectetur modi possimus. Consequuntur optio ad quae possimus, debitis earum.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
     <!-- Sosial Media -->
-     <section class="social bg-light" id="social">
+     <section class="social" id="social">
       <div class="container">
         <div class="row pt-4 mb-4">
           <div class="col text-center">
@@ -155,7 +119,7 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
 
 
     <!-- Portfolio -->
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio bg-light" id="portfolio">
       <div class="container">
         <div class="row pt-4 mb-4">
           <div class="col text-center">
@@ -224,7 +188,7 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
 
 
     <!-- Contact -->
-    <section class="contact bg-light" id="contact">
+    <section class="contact" id="contact">
       <div class="container">
         <div class="row pt-4 mb-4">
           <div class="col text-center">
@@ -284,7 +248,7 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
       <div class="container">
         <div class="row">
           <div class="col text-center">
-            <p>Copyright &copy; 2018.</p>
+            <p>Copyright &copy; 2025.</p>
           </div>
         </div>
       </div>
