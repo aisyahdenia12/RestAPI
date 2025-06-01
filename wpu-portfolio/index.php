@@ -16,6 +16,31 @@ $youtubeProfilPic = $result['items'][0]['snippet']['thumbnails']['medium']['url'
 $channelName = $result['items'][0]['snippet']['title'];
 $subscriber = $result['items'][0]['statistics']['subscriberCount'];
 
+//instagram API
+$clientID = "17841475095108160";
+$accessToken = "IGAAPCZBZBcSWBBBZAE9TcHMyWHdrM1E1UWpuNFMxYjJvMHpCeXFaUXI4T0pBb2ZApLXRfdEFGZAkg0WGd0VVNadjFBOGRMUTV3M0tnbjdpYkF4bzZAiRG5CS0xtUldWcVAzaHZAUNzgwSFA0Y0ZAJb096eGV1MFo0LVY1R0dzaTcwcHdYawZDZD";
+
+$result2 = get_Curl("https://graph.instagram.com/v22.0/me?fields=username,profile_picture_url,followers_count&access_token=IGAAPCZBZBcSWBBBZAE9TcHMyWHdrM1E1UWpuNFMxYjJvMHpCeXFaUXI4T0pBb2ZApLXRfdEFGZAkg0WGd0VVNadjFBOGRMUTV3M0tnbjdpYkF4bzZAiRG5CS0xtUldWcVAzaHZAUNzgwSFA0Y0ZAJb096eGV1MFo0LVY1R0dzaTcwcHdYawZDZD");
+
+$usernameIG = $result2['username'];
+$profilePictureIG = $result2['profile_picture_url'];
+$followersIG = $result2['followers_count'];
+
+//media IG
+$resultGambar1 = get_Curl("https://graph.instagram.com/v22.0/18029276387448609?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
+$resultGambar2 = get_Curl("https://graph.instagram.com/v22.0/18046106128126227?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
+$resultGambar3 = get_Curl("https://graph.instagram.com/v22.0/18069013345001390?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
+$resultGambar4 = get_Curl("https://graph.instagram.com/v22.0/17885771581344814?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
+$resultGambar5 = get_Curl("https://graph.instagram.com/v22.0/18051016933118137?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
+
+
+$gambar1 = $resultGambar1['media_url'];
+$gambar2 = $resultGambar2['media_url'];
+$gambar3 = $resultGambar3['media_url'];
+$gambar4 = $resultGambar4['media_url'];
+$gambar5 = $resultGambar5['media_url'];
+
+
 //latest video
 $urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBaIJIHdaiT57WH7vP_cq9mSUv1VHAWVm0&channelId=UC1ej-C9siBqnhHSHbsf1y_g&maxResults=1&order=date&part=snippet';
 $result = get_CURL($urlLatestVideo);
@@ -90,11 +115,11 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
           <div class="col-md-5">
             <div class="row">
               <div class="col-md-4 ">
-                <img src="img/profile1.png" width="200" class="rounded-circle img-thumbnail">
+                <img src="<?=$profilePictureIG; ?>" width="200" class="rounded-circle img-thumbnail">
               </div>
               <div class="col-md-8">
-                  <h5>@stsyaahh</h5>
-                  <p>900 Followers</p>
+                  <h5><?=$usernameIG; ?></h5>
+                  <p><?=$followersIG; ?> Followers</p>
               </div>
             </div>
 
