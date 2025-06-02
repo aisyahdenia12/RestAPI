@@ -26,19 +26,23 @@ $usernameIG = $result2['username'];
 $profilePictureIG = $result2['profile_picture_url'];
 $followersIG = $result2['followers_count'];
 
-//media IG
-$resultGambar1 = get_Curl("https://graph.instagram.com/v22.0/18029276387448609?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
-$resultGambar2 = get_Curl("https://graph.instagram.com/v22.0/18046106128126227?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
-$resultGambar3 = get_Curl("https://graph.instagram.com/v22.0/18069013345001390?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
-$resultGambar4 = get_Curl("https://graph.instagram.com/v22.0/17885771581344814?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
-$resultGambar5 = get_Curl("https://graph.instagram.com/v22.0/18051016933118137?fields=media_url&access_token=IGAASJqGvaSOlBZAE1WY1hWT0VseUpIN1pmeWxQLXpnYVpFaWx6S1BnSUdQQklZAbUFvRWhYRVRUa2xJREh3c201ZA0lCZAE96b2ZAmeXNUTGZAzUFpEOENVd012T0tfUFNyUHhFcXRKSV80UkR3TW94VUt6d0ZAYQ19UZAndJbFJsX0RXZAwZDZD");
+//ig post
+$result = get_CURL('https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=IGAAPCZBZBcSWBBBZAE9TcHMyWHdrM1E1UWpuNFMxYjJvMHpCeXFaUXI4T0pBb2ZApLXRfdEFGZAkg0WGd0VVNadjFBOGRMUTV3M0tnbjdpYkF4bzZAiRG5CS0xtUldWcVAzaHZAUNzgwSFA0Y0ZAJb096eGV1MFo0LVY1R0dzaTcwcHdYawZDZD');
 
+$photos = [];
 
-$gambar1 = $resultGambar1['media_url'];
-$gambar2 = $resultGambar2['media_url'];
-$gambar3 = $resultGambar3['media_url'];
-$gambar4 = $resultGambar4['media_url'];
-$gambar5 = $resultGambar5['media_url'];
+if (isset($result['data']) && is_array($result['data'])) {
+    foreach ($result['data'] as $media) {
+        // Filter media_type image
+        if ($media['media_type'] == 'IMAGE' || $media['media_type'] == 'CAROUSEL_ALBUM') {
+            $photos[] = $media['media_url'];
+        }
+    }
+} else {
+    echo "<pre>";
+    print_r($result);
+    echo "</pre>";
+}
 
 
 //latest video
@@ -125,16 +129,11 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
 
             <div class="row mt-3 pb-3">
               <div class="col">
+                <?php foreach ($photos as $photo) : ?>
                 <div class="ig-thumbnail">
-                  <img src="img/thumbs/1.png">
+                  <img src="<?=$photo; ?>">
                 </div>
-                <div class="ig-thumbnail">
-                  <img src="img/thumbs/2.png">
-                </div>
-                <div class="ig-thumbnail">
-                  <img src="img/thumbs/3.png">
-                </div>
-              </div>
+                <?php endforeach; ?>
             </div>
           </div>
         </div>
@@ -154,27 +153,27 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
         <div class="row">
           <div class="col-md mb-4">
             <div class="card">
-              <img class="card-img-top" src="img/thumbs/1.png" alt="Card image cap">
+              <img class="card-img-top" src="https://cdn-sekolah.annibuku.com/10307624/2.jpg" alt="Card image cap">
               <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Alumni Dari SDN 05 Koto Tangah.</p>
               </div>
             </div>
           </div>
 
           <div class="col-md mb-4">
             <div class="card">
-              <img class="card-img-top" src="img/thumbs/2.png" alt="Card image cap">
+              <img class="card-img-top" src="https://cdn-sekolah.annibuku.com/10302393/1.jpg" alt="Card image cap">
               <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Alumni Dari SMPN 01 Tanjung Emas.</p>
               </div>
             </div>
           </div>
 
           <div class="col-md mb-4">
             <div class="card">
-              <img class="card-img-top" src="img/thumbs/3.png" alt="Card image cap">
+              <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQLWoRF6F5U9anCraFXOOXhdD88ZPlpGUrEw&s" alt="Card image cap">
               <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Alumni Dari SMAN 1 Padang Ganting.</p>
               </div>
             </div>
           </div>   
@@ -183,27 +182,18 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
         <div class="row">
           <div class="col-md mb-4">
             <div class="card">
-              <img class="card-img-top" src="img/thumbs/4.png" alt="Card image cap">
+              <img class="card-img-top" src="https://uinib.ac.id/2022/wp-content/uploads/2022/07/bg-login.jpg" alt="Card image cap">
               <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Mahasiswa Prodi Sistem Informasi, Fakultas Sains dan Teknologi, Universitas Islam Negeri Imam Bonjol Padang.</p>
               </div>
             </div>
           </div> 
           <div class="col-md mb-4">
             <div class="card">
-              <img class="card-img-top" src="img/thumbs/5.png" alt="Card image cap">
+              <img class="card-img-top" src="https://cdn1-production-images-kly.akamaized.net/Mbgr_4AE0eW7RbvXXm5c0xDl_00=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3448531/original/075666300_1620194587-WhatsApp_Image_2021-05-05_at_12.01.55__3_.jpeg" alt="Card image cap">
               <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+                <p class="card-text">Tinggal dan Lahir di Kota Batusangkar.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md mb-4">
-            <div class="card">
-              <img class="card-img-top" src="img/thumbs/6.png" alt="Card image cap">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
             </div>
           </div>
@@ -232,9 +222,9 @@ $latestVideoId = $result['items'][0]['id']['videoId'];
             
             <ul class="list-group mb-4">
               <li class="list-group-item"><h3>Location</h3></li>
-              <li class="list-group-item">My Office</li>
-              <li class="list-group-item">Jl. Setiabudhi No. 193, Bandung</li>
-              <li class="list-group-item">West Java, Indonesia</li>
+              <li class="list-group-item">My Home</li>
+              <li class="list-group-item">Saruaso, Kec. Tj. Emas, Kabupaten Tanah Datar, Sumatera Barat</li>
+              <li class="list-group-item">West Sumatera, Indonesia</li>
             </ul>
           </div>
 
